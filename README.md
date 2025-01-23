@@ -10,7 +10,7 @@ ToDoApp is a simple and efficient web application built using Express.js and Seq
 
 1. Clone the repository and navigate to the backend directory:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/rameshwarTiwari1/ToDoApp.git
    cd ToDoApp/backend
    ```
 2. Install dependencies:
