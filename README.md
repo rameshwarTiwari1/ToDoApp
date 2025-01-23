@@ -1,80 +1,132 @@
-ToDoApp: A To-Do List Application
+ToDoApp
 
-This is a simple to-do list application built with Express.js and Sequelize. Users can sign up, log in, and manage their personal to-do lists.
+Overview
 
-Prerequisites
+ToDoApp is a web application built with Express.js, Sequelize, and SQLite, allowing users to register, log in, and manage their personal to-do lists. This application demonstrates CRUD operations, user authentication, and responsive design using Bootstrap.
 
-    Node.js 14+
-    npm (Node Package Manager)
+Features
 
-Installation
+User Authentication: Register, log in, and log out using Passport.js.
 
-    Clone this repository.
+Task Management: Create, read, update, and delete tasks.
 
-    Navigate to the project root directory:
-    Bash
+Task Ownership: Each user can only manage their own tasks.
 
-cd ToDoApp
+Responsive Design: User-friendly interface powered by Bootstrap.
 
-Install dependencies for both the backend and frontend:
-Bash
+Installation and Setup
 
-    npm install
+Backend
 
-    This will install all the necessary packages for the application to run.
+Clone the repository and navigate to the backend directory:
 
-Running the Application
+git clone <repository-url>
+cd ToDoApp/backend
 
-    Start the backend server:
-    Bash
+Install dependencies:
+
+npm install
+
+Create a .env file in the backend directory with the following variables:
+
+NODE_ENV=development
+PORT=8000
+SESSION_SECRET=your_secret_key
+
+Start the server:
 
 node server.js
 
-This will start the Express.js server and listen for incoming requests.
+The backend will run on http://localhost:8000.
 
-Start the frontend development server:
-Bash
+Frontend
 
-    cd frontend
-    npm start
+Navigate to the frontend directory:
 
-    This will start the development server for the frontend application. By default, it will be accessible at http://localhost:3000/ in your web browser.
+cd ToDoApp/frontend
+
+Install dependencies:
+
+npm install
+
+Start the frontend application:
+
+npm start
+
+The frontend will run on http://localhost:3000.
+
+API Endpoints
+
+User Routes
+
+POST /users/register: Register a new user.
+
+POST /users/login: Log in and retrieve a token.
+
+GET /users/logout: Log out the current user.
+
+Task Routes
+
+GET /tasks: Retrieve all tasks for the authenticated user.
+
+POST /tasks: Create a new task.
+
+PUT /tasks/:id: Update an existing task.
+
+DELETE /tasks/:id: Delete a task.
+
+PATCH /tasks/:id/toggle: Toggle the completion status of a task.
+
+Testing
+
+Running Tests
+
+Ensure the test database is configured in config/database.js.
+
+Run the tests:
+
+NODE_ENV=test npm test
+
+Tests are written using Mocha and Chai and cover both models and routes.
 
 Project Structure
 
 ToDoApp/
 ├── backend/
-│   ├── controllers/   # Contains controllers for handling user and task routes
-│   ├── models/        # Contains Sequelize models for users and tasks
-│   ├── middleware/    # Contains middleware for user authentication and authorization
-│   ├── routes/         # Contains routes for user and task management
-│   └── server.js       # Main entry point for the backend server
+│   ├── config/
+│   │   └── database.js
+│   ├── controllers/
+│   │   ├── userController.js
+│   │   └── taskController.js
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Task.js
+│   ├── routes/
+│   │   ├── userRoutes.js
+│   │   └── taskRoutes.js
+│   ├── test/
+│   │   ├── user.test.js
+│   │   └── task.test.js
+│   ├── server.js
+│   └── .env
 ├── frontend/
-│   ├── public/        # Contains static assets like CSS and JavaScript files
-│   ├── src/            # Contains the React components for the frontend application
-│   ├── package.json    # Contains project dependencies and scripts
-│   └── index.html     # Main HTML file for the frontend application
-├── README.md         # This file (you are reading it now)
-
-User Authentication and Authorization
-
-All routes related to task management are protected. Users need to be logged in to access these routes. The application uses Passport.js for user authentication with a local strategy (username and password).
-
-Features
-
-    User registration and login
-    Create, read, update, and delete tasks
-    Mark tasks as completed
-    View all tasks for the logged-in user
-
-Testing
-
-Basic tests for models and routes are written using Mocha and Chai. You can run the tests using the following command:
-Bash
-
-npm test
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── README.md
 
 Additional Notes
 
-    This is a basic implementation of a to-do list application. You can extend it with additional features like deadlines, categories, and priority levels.
-    The application uses Bootstrap for a responsive and user-friendly interface.
+Ensure to replace your_secret_key in .env with a secure value.
+
+Tasks are linked to users via a UserId foreign key.
+
+Use hashed passwords in production for security.
+
+License
+
+This project is licensed under the ISC License.
+
