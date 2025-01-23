@@ -49,7 +49,7 @@ const Signup = () => {
     } catch (err) {
       // Handle unexpected errors from the API or network
       setError(
-        err.response?.data?.message || "An unexpected error occurred. Please try again."
+        err.response?.data?.message || "User Already registered or An unexpected error occurred."
       );
     }
   };

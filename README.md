@@ -45,16 +45,6 @@ ToDoApp is a simple and efficient web application built using Express.js and Seq
    ```
    The frontend will run on `http://localhost:3000`.
 
-## Environment Variables
-
-Ensure the `.env` file contains the following variables:
-
-```env
-NODE_ENV=development
-PORT=8000
-SESSION_SECRET=your_secret_key
-```
-
 ## How to Run
 
 1. Start the backend server:
@@ -72,7 +62,7 @@ SESSION_SECRET=your_secret_key
 - User registration and login with secure authentication.
 - CRUD operations for managing personal to-do tasks.
 - Tasks linked to individual users for secure access.
-- Responsive and user-friendly design using Bootstrap.
+- Responsive and user-friendly design using.
 
 ## License
 

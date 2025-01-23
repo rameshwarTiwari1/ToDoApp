@@ -26,8 +26,8 @@ const Taskcard = ({
   };
 
   return (
-    <div className="border rounded p-4 bg-white hover:shadow-xl transition-all ease-in-out">
-      <div className="flex items-center justify-between">
+    <div className="border rounded p-4 mb-2 bg-white hover:shadow-xl transition-all ease-in-out">
+      <div className="  items-center justify-between">
         <div>
           <h6 className="text-lg font-semibold text-gray-800">
             {/* Show title or fallback to 'Untitled' if empty */}
