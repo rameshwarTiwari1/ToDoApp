@@ -3,11 +3,11 @@ const cors = require('cors');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const passport = require('passport'); // Import passport
-const http = require('http'); // Missing import for 'http'
+const http = require('http'); 
 const { Server } = require('socket.io');
-require('dotenv').config(); // Ensure this is loaded before using environment variables
+require('dotenv').config(); 
 require('./config/passport'); // Import passport configuration
-const sequelize = require('./config/database'); // Your Sequelize instance
+const sequelize = require('./config/database'); // Sequelize instance
 const userRoutes = require('./routes/userRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 

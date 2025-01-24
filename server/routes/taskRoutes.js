@@ -1,7 +1,7 @@
 const express = require('express');
 const { isAuthenticated} = require('../middleware/auth');
 const { Op } = require("sequelize");
-const sequelize = require("../config/database"); // Import the sequelize instance
+const sequelize = require("../config/database"); 
 const Task = require("../models/Task");
 
 const router = express.Router();
@@ -11,7 +11,7 @@ router.get('/', isAuthenticated, async (req, res) => {
   try {
     const tasks = await Task.findAll({ where: { UserId: req.user.id } });
     console.log("Fetched tasks:", tasks);
-    res.status(200).send(tasks); // Flatten response
+    res.status(200).send(tasks); 
   } catch (err) {
     console.error("Error fetching tasks:", err);
     res.status(500).send({ error: "Failed to fetch tasks" });
