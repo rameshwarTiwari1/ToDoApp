@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // React frontend URL
+  origin: ['http://localhost:3000', 'https://todoapp-4t5z.onrender.com'], // React frontend URL
   credentials: true, // Allow credentials (cookies)
 }));
 app.use(bodyParser.json());

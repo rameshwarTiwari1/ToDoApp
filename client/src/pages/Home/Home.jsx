@@ -13,7 +13,7 @@ import noDataImg from "../../assets/noDataImg.png";
 import io from "socket.io-client";
 
 // Socket URL moved to environment variable
-const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || "http://localhost:5000";
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || "https://todoapp-4t5z.onrender.com";
 
 const Home = () => {
   const [openAddEditModal, setOpenAddEditModal] = useState({
