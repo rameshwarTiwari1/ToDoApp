@@ -1,0 +1,48 @@
+User Guide: Running the Application Locally
+1. Set Up the Backend (Server)
+
+    Navigate to the server folder: Open your terminal or command prompt and change the directory to the server folder:
+
+cd server
+
+Install Backend Dependencies: Run the following command to install all the required dependencies for the backend:
+
+npm install
+
+Start the Server: Once the dependencies are installed, start the server by running:
+
+    npm start 
+
+    This will start the server on port 8000 by default. You should see a message indicating that the server is running.
+
+2. Set Up the Frontend (Client)
+
+    Navigate to the client folder: Open a new terminal window or tab and change the directory to the client folder:
+
+cd client
+
+Install Frontend Dependencies: Run the following command to install all the required dependencies for the frontend:
+
+npm install
+
+Start the Client: Once the dependencies are installed, start the React development server by running:
+
+    npm start
+
+    This will start the frontend on port 3000 by default.
+
+3. Access the Application in the Browser
+
+    After starting both the backend and frontend, open your browser and go to the following URLs:
+
+        Frontend (React App):
+        Open http://localhost:3000 to access the React app.
+
+        Backend (API):
+        The backend server is running on http://localhost:8000. You can test the API that are listed in routes in endpoint,
+	folder using Postman or other tools.
+
+4. Troubleshooting
+
+    If you encounter issues, make sure both the frontend and backend are running in separate terminal windows.
+    Ensure that the correct ports (3000 for the frontend and 8000 for the backend) are not being used by other applications.

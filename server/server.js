@@ -53,9 +53,12 @@ app.use(
     cookie: {
       httpOnly: true, // Prevent JavaScript access
       secure: process.env.NODE_ENV === 'production', // Secure cookies in production
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Required for cross-origin cookies in production
+      // used for secure https request for deploying on render thats why i used this
     },
   })
 );
+
 
 // Passport initialization
 app.use(passport.initialize());
