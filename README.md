@@ -6,28 +6,28 @@ ToDoApp is a simple and efficient web application built using Express.js and Seq
 
 ## Installation and Setup
 
-### Backend
+### server
 
-1. Clone the repository and navigate to the backend directory:
+1. Clone the repository and navigate to the server directory:
    ```bash
    git clone https://github.com/rameshwarTiwari1/ToDoApp.git
-   cd ToDoApp/backend
+   cd ToDoApp/server
    ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Create a `.env` file in the `backend` directory with the following content:
+3. Create a `.env` file in the `server` directory with the following content:
    ```env
    NODE_ENV=development
    PORT=8000
    SESSION_SECRET=your_secret_key
    ```
-4. Start the backend server:
+4. Start the server:
    ```bash
    node server.js
    ```
-   The backend will run on `http://localhost:8000`.
+   The server will run on `http://localhost:8000`.
 
 ### Frontend
 
@@ -47,7 +47,7 @@ ToDoApp is a simple and efficient web application built using Express.js and Seq
 
 ## How to Run
 
-1. Start the backend server:
+1. Start the server server:
    ```bash
    node server.js
    ```
