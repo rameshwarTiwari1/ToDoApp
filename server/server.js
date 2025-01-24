@@ -44,20 +44,25 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Session saving configuration 
+const isProduction = process.env.NODE_ENV === 'production';
+// Trust proxies in production (required for Render or similar platforms)
+if (isProduction) {
+  app.set('trust proxy', 1); // Trust the first proxy i used render for deployment thats why I'm doing all this
+}
+// Session configuration
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'defaultSecret', // Use a secure secret
-    resave: false,
-    saveUninitialized: false,
+    resave: false, // Do not save session if unmodified
+    saveUninitialized: false, // Do not create session until something is stored
     cookie: {
       httpOnly: true, // Prevent JavaScript access
-      secure: process.env.NODE_ENV === 'production', // Secure cookies in production
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Required for cross-origin cookies in production
-      // used for secure https request for deploying on render thats why i used this
+      secure: isProduction, // Use secure cookies in production
+      sameSite: isProduction ? 'none' : 'lax', // Cross-origin support in production
     },
   })
 );
+
 
 
 // Passport initialization
@@ -71,7 +76,7 @@ app.use('/api/tasks', taskRoutes);
 // Sync database and start server
 const port = process.env.PORT || 5000;
 
-sequelize.sync({ force: false })  // force true: delete all data and create new table, if false data will remain same
+sequelize.sync({ force: true })  // force true: delete all data and create new table, if false data will remain same
   .then(() => {
     server.listen(port, () => { 
       console.log(`Server running on port ${port}`);
