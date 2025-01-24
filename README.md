@@ -64,9 +64,6 @@ ToDoApp is a simple and efficient web application built using Express.js and Seq
 - Tasks linked to individual users for secure access.
 - Responsive and user-friendly design using.
 
-## Live Preview
-visit on this website `https://todosite.vercel.app/signup`
-
 ## License
 
 This project is licensed under the GNU License.
