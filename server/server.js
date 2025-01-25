@@ -20,7 +20,7 @@ const server = http.createServer(app);
 // Initialize socket.io
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // React frontend URL
+    origin: ["http://localhost:3000", "https://your-frontend-url.com"], // React frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   },
