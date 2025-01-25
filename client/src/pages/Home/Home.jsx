@@ -13,7 +13,7 @@ import noDataImg from "../../assets/noDataImg.png";
 import io from "socket.io-client";
 
 // Socket URL moved to environment variable
-const SOCKET_URL = "https://todoapp-4t5z.onrender.com";
+const SOCKET_URL = "wss://todoapp-4t5z.onrender.com";
 
 const Home = () => {
   const [openAddEditModal, setOpenAddEditModal] = useState({
