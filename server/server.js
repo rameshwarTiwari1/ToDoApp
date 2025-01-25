@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // React frontend URL
+  origin: ['http://localhost:3000', 'https://todosite.vercel.app'], // React frontend URL
   credentials: true, // Allow credentials (cookies)
 }));
 app.use(bodyParser.json());
