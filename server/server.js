@@ -20,7 +20,7 @@ const server = http.createServer(app);
 // Initialize socket.io
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "https://your-frontend-url.com"], // React frontend URL
+    origin: ["http://localhost:3000", "https://todosite.vercel.app"], // React frontend URLs
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   },
@@ -35,17 +35,15 @@ io.on("connection", (socket) => {
   });
 });
 
-
-
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://todosite.vercel.app'], // React frontend URL
+  origin: ['http://localhost:3000', 'https://todosite.vercel.app'], // React frontend URLs
   credentials: true, // Allow credentials (cookies)
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Session saving configuration 
+// Session saving configuration
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'defaultSecret', // Use a secure secret
@@ -55,10 +53,9 @@ app.use(
       httpOnly: true, // Prevent JavaScript access
       secure: process.env.NODE_ENV === 'production', // Secure cookies in production
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Required for cross-origin cookies in production
-      // used for secure https request for deploying on render thats why i added this
     },
   })
-); 
+);
 
 // Passport initialization
 app.use(passport.initialize());
