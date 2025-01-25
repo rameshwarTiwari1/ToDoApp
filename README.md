@@ -4,6 +4,9 @@
 
 ToDoApp is a simple and efficient web application built using Express.js and Sequelize. It allows users to register, log in, and manage their personal to-do lists. Each user can create, update, delete, and toggle the completion status of their tasks in a secure and user-friendly environment.
 
+## Live Preview
+Visit on this url `https://todosite.vercel.app/`
+
 ## Installation and Setup
 
 ### server
