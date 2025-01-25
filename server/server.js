@@ -44,6 +44,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Session saving configuration
+app.set("trust proxy", 1); // Trust first proxy
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'defaultSecret', // Use a secure secret
@@ -57,7 +59,7 @@ app.use(
   })
 );
 
-// Passport initialization
+// Passport initialization  
 app.use(passport.initialize());
 app.use(passport.session());
 
