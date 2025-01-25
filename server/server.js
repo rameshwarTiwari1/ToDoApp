@@ -65,6 +65,12 @@ app.use(passport.session());
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
 
+app.use((req, res, next) => {
+  console.log("Session Data:", req.session);
+  next();
+});
+
+
 // Sync database and start server
 const port = process.env.PORT || 5000;
 

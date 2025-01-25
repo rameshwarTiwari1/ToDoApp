@@ -1,9 +1,11 @@
 const { Sequelize } = require('sequelize');
 const path = require('path');
 
-//storage path based on environment
+// Set the storage path based on the environment (development vs. production)
 const storagePath =
-  path.join(__dirname, '../db/db.sqlite'); 
+  process.env.NODE_ENV === 'production'
+    ? path.join('/tmp', 'db.sqlite')  // For production (Render)
+    : path.join(__dirname, '../db/db.sqlite');  // For local development
 
 // Initialize Sequelize
 const sequelize = new Sequelize({
