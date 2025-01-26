@@ -4,32 +4,30 @@ import { useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import axiosInstance from "../../utils/axiosInstance";
 
-
 const Navbar = ({ userInfo, onSearchTask, handleClearSearch }) => {
-  const [searchquery, setsearchquery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  // Call the logout route
+  // Logout function
   const onLogout = async () => {
     try {
-      await axiosInstance.get("api/users/logout", { withCredentials: true }); 
-      // Redirect to the login page after successful logout
-      navigate("/login"); 
+      await axiosInstance.get("api/users/logout", { withCredentials: true });
+      navigate("/login");
     } catch (error) {
       console.error("Error during logout:", error);
     }
   };
-  
-  // search box and handle search query
-  const handlesearch = () => {
-    if (searchquery) {
-      onSearchTask(searchquery);
+
+  // Handle search query
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    if (query) {
+      onSearchTask(query);
+    } else {
+      handleClearSearch();
     }
   };
-  const onClearSearch = () => {
-    setsearchquery("");
-    handleClearSearch();
-  };
+
   return (
     <div className="bg-white flex items-center justify-between px-4 sm:px-6 py-2 drop-shadow">
       <h2 className="text-lg sm:text-xl font-medium text-black py-2">
@@ -37,12 +35,9 @@ const Navbar = ({ userInfo, onSearchTask, handleClearSearch }) => {
       </h2>
       {userInfo && (
         <SearchBar
-          value={searchquery}
-          onChange={({ target }) => {
-            setsearchquery(target.value);
-          }}
-          handleSearch={handlesearch}
-          onClearSearch={onClearSearch}
+          value={searchQuery}
+          onChange={handleSearch}
+          onClearSearch={handleClearSearch}
         />
       )}
       <ProfileInfo userInfo={userInfo} onLogout={onLogout} />
