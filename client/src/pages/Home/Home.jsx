@@ -88,9 +88,7 @@ const Home = () => {
   const getAllTasks = async () => {
     try {
       const response = await axiosInstance.get("/api/tasks", { withCredentials: true });
-      console.log("Full response from backend (getAllTasks):", response.data); // Log full response
-  
-      // Adjust based on the actual response structure
+      // console.log("Full response from backend (getAllTasks):", response.data); // Log full response
       if (response.data && Array.isArray(response.data)) {
         setAlltasks(response.data); // If the tasks are in the response directly as an array
       } else if (response.data.tasks) {
