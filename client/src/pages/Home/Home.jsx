@@ -14,7 +14,7 @@ import io from "socket.io-client";
 import debounce from "lodash.debounce";
 
 // Socket URL moved to environment variable
-const SOCKET_URL = "http://localhost:5000";
+const SOCKET_URL = "https://todoapp-4t5z.onrender.com";
 
 const Home = () => {
   const [openAddEditModal, setOpenAddEditModal] = useState({
