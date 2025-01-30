@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/', isAuthenticated, async (req, res) => {
   try {
     const tasks = await Task.findAll({ where: { UserId: req.user.id } });
-    console.log("Fetched tasks:", tasks);
+    // console.log("Fetched tasks:", tasks);
     res.status(200).send(tasks); 
   } catch (err) {
     console.error("Error fetching tasks:", err);
